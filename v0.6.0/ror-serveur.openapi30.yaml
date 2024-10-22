@@ -1546,8 +1546,9 @@ components:
             required:
               - coding
         value:
-          $ref: '#/components/schemas/string'
           type: array
+          items:
+            $ref: '#/components/schemas/string'
         address:
           description: Physical location.
           allOf:
@@ -1746,10 +1747,11 @@ components:
                   required:
                     - coding
               system:
-                $ref: '#/components/schemas/uri'
                 description: >-
                   Establishes the namespace for the value - that is, a URL that
                   describes a set values that are unique.
+                allOf:
+                  - $ref: '#/components/schemas/uri'
               value:
                 $ref: '#/components/schemas/string'
             required:
@@ -3315,7 +3317,6 @@ components:
           allOf:
             - $ref: '#/components/schemas/Period'
       additionalProperties: false
-      required: []
   parameters:
     rid:
       name: rid
